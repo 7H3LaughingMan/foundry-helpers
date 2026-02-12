@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unsafe-function-type */
 export {};
 
 declare global {
@@ -185,7 +187,7 @@ declare global {
         static register(
             package_id: string,
             target: number | string,
-            fn: (...args: never) => unknown,
+            fn: Function,
             type?: WRAPPER_TYPES,
             options?: {
                 chain?: boolean;
@@ -193,7 +195,7 @@ declare global {
                 bind?: unknown[];
             }
         ): number;
-        static register<T extends ThisType<F>, F extends (...args: unknown[]) => unknown>(
+        static register<T extends ThisType<F>, F extends (...args: any) => any>(
             package_id: string,
             target: number | string,
             fn: (this: T, wrapped: F, ...args: Parameters<F>) => ReturnType<F>,
@@ -204,7 +206,7 @@ declare global {
                 bind?: unknown[];
             }
         ): number;
-        static register<T extends ThisType<F>, F extends (...args: unknown[]) => unknown>(
+        static register<T extends ThisType<F>, F extends (...args: any) => any>(
             package_id: string,
             target: number | string,
             fn: (this: T, ...args: Parameters<F>) => ReturnType<F>,
@@ -215,7 +217,7 @@ declare global {
                 bind?: unknown[];
             }
         ): number;
-        static register<T extends ThisType<F>, F extends (...args: unknown[]) => unknown>(
+        static register<T extends ThisType<F>, F extends (...args: any) => any>(
             package_id: string,
             target: number | string,
             fn: (this: T, ...args: Parameters<F>) => void | Promise<void>,
