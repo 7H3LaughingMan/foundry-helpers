@@ -1,0 +1,28 @@
+{
+    "name": "pf2e-effects-halo",
+    "author": {
+        "name": "7H3LaughingMan",
+        "email": "7H3LaughingMan@proton.me",
+        "url": "https://github.com/7H3LaughingMan"
+    },
+    "license": "MIT",
+    "type": "module",
+    "exports": {
+        "./lib-wrapper": "./src/lib-wrapper/index.d.ts",
+        "./utilities": "./src/utilities/index.ts"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.39.2",
+        "eslint": "^9.39.2",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.5",
+        "prettier": "^3.8.1",
+        "prettier-plugin-organize-imports": "^4.3.0",
+        "typescript": "^5.9.3",
+        "typescript-eslint": "^8.55.0"
+    },
+    "dependencies": {
+        "foundry-types": "github:7H3LaughingMan/foundry-types",
+        "remeda": "^2.33.6"
+    }
+}

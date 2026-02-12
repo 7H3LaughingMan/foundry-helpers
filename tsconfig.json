@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
+        "noEmit": true,
+        "strict": true,
+        "allowImportingTsExtensions": true,
+        "types": [
+            "foundry-types",
+            "jquery",
+            "tooltipster"
+        ]
+    }
+}

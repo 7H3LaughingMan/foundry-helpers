@@ -1,0 +1,10 @@
+{
+    "editor.formatOnSave": true,
+    "files.eol": "\n",
+    "[javascript]": {
+        "editor.tabSize": 4
+    },
+    "[typescript]": {
+        "editor.tabSize": 4
+    }
+}
