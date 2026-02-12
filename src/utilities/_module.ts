@@ -13,7 +13,7 @@ export class MODULE<TApi extends Record<string, unknown> = Record<string, unknow
 
     constructor(id: string, globalName?: string) {
         this.#id = id;
-        this.#globalName = globalName || id.replace(new RegExp(`^${game.system.id}-`), "").replace(/-(\w)/g, (_substring, p1: string) => p1.toUpperCase());
+        this.#globalName = globalName || id.replace(/-(\w)/g, (_substring, p1: string) => p1.toUpperCase());
 
         Hooks.once("init", () => {
             Object.defineProperty(game, this.#globalName, {
