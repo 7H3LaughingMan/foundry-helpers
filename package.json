@@ -7,6 +7,7 @@
     },
     "license": "MIT",
     "type": "module",
+    "sideEffects": false,
     "exports": {
         "./lib-wrapper": "./src/lib-wrapper/index.d.ts",
         "./utilities": "./src/utilities/index.ts"

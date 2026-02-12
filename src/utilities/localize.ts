@@ -71,6 +71,7 @@ class Localize extends Function {
         if (game.i18n.has(path, true)) {
             return this.localizeOrFormat(path, data);
         }
+        return undefined;
     }
 
     sub(...subkeys: string[]): Localize {

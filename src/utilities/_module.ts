@@ -77,12 +77,14 @@ export class MODULE<TApi extends Record<string, unknown> = Record<string, unknow
         console.error(`[${this.name}]`, ...args);
     }
 
-    static apiExpose(path: string, object: Record<string, AnyFunction>, context?: unknown) {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+    static apiExpose(path: string, object: Record<string, Function>, context?: unknown) {
         if (foundry.utils.hasProperty(this.#instance.api, path)) {
             throw this.Error(`The API path has already been defined: ${path}`);
         }
 
-        const exposed: Record<string, AnyFunction> = {};
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
+        const exposed: Record<string, Function> = {};
 
         for (const [key, fn] of R.entries(object)) {
             Object.defineProperty(exposed, key, {
