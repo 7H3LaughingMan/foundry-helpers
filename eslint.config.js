@@ -14,6 +14,12 @@ export default defineConfig([
         extends: ["js/recommended"],
         languageOptions: { globals: globals.browser },
         rules: {
+            "@typescript-eslint/no-this-alias": [
+                "error",
+                {
+                    allowedNames: ["self"]
+                }
+            ],
             "@typescript-eslint/no-unused-vars": [
                 "error",
                 {

@@ -1,5 +1,5 @@
 import * as R from "remeda";
-import { MODULE } from "./_module.ts";
+import { MODULE } from "./module.ts";
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 class Localize extends Function {
@@ -10,7 +10,6 @@ class Localize extends Function {
 
         this.subkeys = subkeys;
 
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
         const self = this;
 
         function localize(...args: LocalizeArgs): string {
@@ -34,36 +33,8 @@ class Localize extends Function {
         return { path, data };
     }
 
-    i18n(...subkeys: string[]) {
-        // eslint-disable-next-line @typescript-eslint/no-this-alias
-        const self = this;
-
-        function i18n(...args: LocalizeArgs): string {
-            return self(...subkeys, ...args);
-        }
-
-        Object.defineProperties(i18n, {
-            tooltip: {
-                value: (...args: Parameters<Handlebars.HelperDelegate>): string => {
-                    const path = args.slice(0, -1);
-                    const tooltip = i18n(...subkeys, ...path);
-                    return `data-tooltip="${tooltip}"`;
-                },
-                enumerable: false,
-                configurable: false
-            },
-            root: {
-                value: (...args: Parameters<Handlebars.HelperDelegate>) => {
-                    const data = R.isObjectType(args.at(-1)) ? (args.pop() as LocalizeData) : undefined;
-                    const path = MODULE.path(...subkeys, ...(args as string[]));
-                    return self.localizeOrFormat(path, data);
-                },
-                enumerable: false,
-                configurable: false
-            }
-        });
-
-        return i18n;
+    localizeOrFormat(path: string, data?: LocalizeData): string {
+        return typeof data === "object" ? game.i18n.format(path, data) : game.i18n.localize(path);
     }
 
     ifExist(...args: LocalizeArgs): string | undefined {
@@ -74,12 +45,30 @@ class Localize extends Function {
         return undefined;
     }
 
-    sub(...subkeys: string[]): Localize {
-        return new Localize(...this.subkeys, ...subkeys);
+    notify(type: "info" | "warning" | "error" | "success", ...args: NotificationArgs): foundry.applications.ui.Notification {
+        const permanent = R.isBoolean(args.at(-1)) ? (args.pop() as boolean) : false;
+        const message = this(...(args as LocalizeArgs));
+        return foundry.ui.notifications.notify(message, type, { permanent });
     }
 
-    localizeOrFormat(path: string, data?: LocalizeData): string {
-        return typeof data === "object" ? game.i18n.format(path, data) : game.i18n.localize(path);
+    info(...args: NotificationArgs): foundry.applications.ui.Notification {
+        return this.notify("info", ...args);
+    }
+
+    warning(...args: NotificationArgs): foundry.applications.ui.Notification {
+        return this.notify("warning", ...args);
+    }
+
+    error(...args: NotificationArgs): foundry.applications.ui.Notification {
+        return this.notify("error", ...args);
+    }
+
+    success(...args: NotificationArgs): foundry.applications.ui.Notification {
+        return this.notify("success", ...args);
+    }
+
+    sub(...subkeys: string[]): Localize {
+        return new Localize(...this.subkeys, ...subkeys);
     }
 }
 
@@ -91,4 +80,5 @@ interface Localize {
 export const localize = new Localize();
 export type LocalizeData = Record<string, Maybe<string | number | boolean>>;
 export type LocalizeArgs = string[] | [...string[], string | LocalizeData];
+export type NotificationArgs = LocalizeArgs | [...LocalizeArgs, string | LocalizeData | boolean];
 export type { Localize };
