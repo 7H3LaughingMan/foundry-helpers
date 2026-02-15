@@ -1,10 +1,7 @@
 {
     "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
     "files.eol": "\n",
-    "[javascript]": {
-        "editor.tabSize": 4
-    },
-    "[typescript]": {
-        "editor.tabSize": 4
-    }
+    "git.followTagsWhenSync": true
 }
