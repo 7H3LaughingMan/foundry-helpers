@@ -29,8 +29,8 @@
         "rootDir": "src",
         "outDir": "dist",
         "types": [
-            "@7h3laughingman/foundry-types",
-        ],
+            "@7h3laughingman/foundry-types"
+        ]
     },
     "include": [
         "./src/**/*"
