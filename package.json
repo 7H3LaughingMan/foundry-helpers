@@ -27,12 +27,6 @@
         "eslint:fix": "eslint src --fix && prettier src --write",
         "prepare": "husky"
     },
-    "lint-staged": {
-        "*.{ts,mts,cts,tsc,js,mjs,cjs,jsx}": [
-            "eslint --fix",
-            "prettier --write"
-        ]
-    },
     "dependencies": {
         "@7h3laughingman/foundry-types": "~13.351",
         "remeda": "^2.33.6"
@@ -52,6 +46,12 @@
     },
     "engines": {
         "node": ">=24"
+    },
+    "lint-staged": {
+        "*.{ts,mts,cts,tsc,js,mjs,cjs,jsx}": [
+            "eslint --fix",
+            "prettier --write"
+        ]
     },
     "sideEffects": false
 }
