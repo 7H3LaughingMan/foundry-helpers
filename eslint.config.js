@@ -1,18 +1,14 @@
-import js from "@eslint/js";
-import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
-import { defineConfig, globalIgnores } from "eslint/config";
-import globals from "globals";
+import eslint from "@eslint/js";
+import json from "@eslint/json";
+import prettier from "eslint-plugin-prettier";
+import { defineConfig } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 export default defineConfig([
-    globalIgnores(["dist/*"]),
+    { plugins: { prettier, json } },
+    eslint.configs.recommended,
+    tseslint.configs.recommended,
     {
-        files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
-        plugins: {
-            js
-        },
-        extends: ["js/recommended"],
-        languageOptions: { globals: globals.browser },
         rules: {
             "@typescript-eslint/no-this-alias": [
                 "error",
@@ -34,6 +30,10 @@ export default defineConfig([
             ]
         }
     },
-    tseslint.configs.recommended,
-    eslintPluginPrettierRecommended
+    {
+        files: ["**/*.json"],
+        ignores: ["package-lock.json"],
+        language: "json/json",
+        rules: json.configs.recommended.rules
+    }
 ]);

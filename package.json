@@ -1,29 +1,48 @@
 {
-    "name": "foundry-helpers",
-    "author": {
-        "name": "7H3LaughingMan",
-        "email": "7H3LaughingMan@proton.me",
-        "url": "https://github.com/7H3LaughingMan"
+    "name": "@7h3laughingman/foundry-helpers",
+    "version": "13.351.0",
+    "description": "Basic helpers used for developing modules for Foundry VTT",
+    "homepage": "https://github.com/7H3LaughingMan/foundry-helpers#readme",
+    "bugs": {
+        "url": "https://github.com/7H3LaughingMan/foundry-helpers/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/7H3LaughingMan/foundry-helpers.git"
     },
     "license": "MIT",
+    "author": "7H3LaughingMan <7H3LaughingMan@proton.me> (https://github.com/7H3LaughingMan)",
     "type": "module",
-    "sideEffects": false,
     "exports": {
-        "./lib-wrapper": "./src/lib-wrapper/index.d.ts",
-        "./utilities": "./src/utilities/index.ts"
+        "./lib-wrapper": "./dist/lib-wrapper/index.d.ts",
+        "./utilities": "./dist/utilities/index.js"
+    },
+    "files": [
+        "./dist/*"
+    ],
+    "scripts": {
+        "tsc": "tsc",
+        "copy-dts": "copyfiles -u 1 \"src/**/*.d.ts\" dist",
+        "eslint": "eslint src",
+        "eslint:fix": "eslint src --fix && prettier src --write"
+    },
+    "dependencies": {
+        "@7h3laughingman/foundry-types": "~13.351",
+        "remeda": "^2.33.6"
     },
     "devDependencies": {
         "@eslint/js": "^9.39.2",
+        "@eslint/json": "^0.14.0",
+        "copyfiles": "^2.4.1",
         "eslint": "^9.39.2",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^5.5.5",
-        "prettier": "^3.8.1",
         "prettier-plugin-organize-imports": "^4.3.0",
-        "typescript": "^5.9.3",
+        "typescript": "5.9.3",
         "typescript-eslint": "^8.55.0"
     },
-    "dependencies": {
-        "foundry-types": "github:7H3LaughingMan/foundry-types",
-        "remeda": "^2.33.6"
-    }
+    "engines": {
+        "node": ">=24"
+    },
+    "sideEffects": false
 }

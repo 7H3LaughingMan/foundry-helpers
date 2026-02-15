@@ -1,4 +1,4 @@
-import { MODULE } from "./module";
+import { MODULE } from "./module.js";
 
 export function settingPath(...path: string[]): string {
     return MODULE.path("settings", ...path);

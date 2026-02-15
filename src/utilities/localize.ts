@@ -1,5 +1,5 @@
 import * as R from "remeda";
-import { MODULE } from "./module.ts";
+import { MODULE } from "./module.js";
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 class Localize extends Function {

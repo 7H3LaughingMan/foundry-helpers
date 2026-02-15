@@ -1,8 +1,8 @@
-import { Module } from "foundry-types/client/packages/_module.mjs";
-import { ImageFilePath } from "foundry-types/common/constants.mjs";
+import { Module } from "@7h3laughingman/foundry-types/client/packages/_module.mjs";
+import { ImageFilePath } from "@7h3laughingman/foundry-types/common/constants.mjs";
 import * as R from "remeda";
-import { localize } from "./localize.ts";
-import { getSetting } from "./settings.ts";
+import { localize } from "./localize.js";
+import { getSetting } from "./settings.js";
 
 class CustomModule {
     #api: Record<string, unknown> = {};
