@@ -7,5 +7,5 @@ export function isRoll(value: unknown): value is Roll {
 }
 
 export function isRolledRoll(value: unknown): value is Rolled<Roll> {
-    return R.isNonNullish(value) && isRoll(value) && value._evaluated === true;
+    return isRoll(value) && value._evaluated === true;
 }
