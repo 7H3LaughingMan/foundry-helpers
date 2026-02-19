@@ -29,3 +29,7 @@ export function primaryPlayerOwner(actor: Actor): User | null {
 export function isPrimaryOwner(actor: Actor, user: User = getCurrentUser()): boolean {
     return user.isGM || primaryPlayerOwner(actor) === user;
 }
+
+export function getTargets(user: User = getCurrentUser()): foundry.canvas.placeables.Token<TokenDocument<Scene>>[] {
+    return Array.from(user.targets ?? []) as foundry.canvas.placeables.Token<TokenDocument<Scene>>[];
+}
