@@ -1,5 +1,7 @@
 export * from "./array.js";
+export * from "./canvas.js";
 export * from "./compendium-collection.js";
+export * from "./document.js";
 export * from "./flags.js";
 export * from "./html.js";
 export * from "./localize.js";
