@@ -47,7 +47,6 @@ export function documentHasParent(value: Maybe<AmbientLightDocument>): value is 
 export function documentHasParent(value: Maybe<AmbientSoundDocument>): value is AmbientSoundDocument<Scene>;
 // @ts-expect-error Type instantiation is excessively deep and possibly infinite
 export function documentHasParent(value: Maybe<Card>): value is Card<Cards>;
-export function documentHasParent(value: Maybe<ChatMessage>): value is ChatMessage<User>;
 export function documentHasParent(value: Maybe<Combatant>): value is Combatant<Combat>;
 export function documentHasParent(value: Maybe<CombatantGroup>): value is CombatantGroup<Combat>;
 export function documentHasParent(value: Maybe<DrawingDocument>): value is DrawingDocument<Scene>;
