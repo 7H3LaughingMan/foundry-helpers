@@ -29,6 +29,7 @@
         "rootDir": "src",
         "outDir": "dist",
         "types": [
+            "jquery",
             "@7h3laughingman/foundry-types"
         ]
     },

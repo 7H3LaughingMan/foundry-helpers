@@ -34,7 +34,7 @@ class Localize extends Function {
     }
 
     localizeOrFormat(path: string, data?: LocalizeData): string {
-        return typeof data === "object" ? game.i18n.format(path, data) : game.i18n.localize(path);
+        return typeof data === "object" ? game.i18n.localize(path, data) : game.i18n.localize(path);
     }
 
     ifExist(...args: LocalizeArgs): string | undefined {
