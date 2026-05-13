@@ -1,6 +1,6 @@
 {
     "name": "@7h3laughingman/foundry-helpers",
-    "version": "14.360.0",
+    "version": "14.361.0",
     "description": "Basic helpers used for developing modules for Foundry VTT",
     "homepage": "https://github.com/7H3LaughingMan/foundry-helpers#readme",
     "bugs": {
