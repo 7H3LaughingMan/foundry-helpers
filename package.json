@@ -14,8 +14,6 @@
     "author": "7H3LaughingMan <7H3LaughingMan@proton.me> (https://github.com/7H3LaughingMan)",
     "type": "module",
     "exports": {
-        "./lib-wrapper": "./dist/lib-wrapper/index.d.ts",
-        "./socketlib": "./dist/socketlib/index.d.ts",
         "./utilities": "./dist/utilities/index.js"
     },
     "files": [
@@ -29,22 +27,22 @@
         "prepare": "husky"
     },
     "dependencies": {
-        "@7h3laughingman/foundry-types": "~14.360.8",
-        "remeda": "^2.33.7"
+        "@7h3laughingman/foundry-types": "~14.360.9",
+        "remeda": "^2.34.0"
     },
     "devDependencies": {
         "@eslint/js": "^10.0.1",
         "@eslint/json": "^1.2.0",
         "@types/jquery": "^3.5.34",
-        "eslint": "^10.2.0",
+        "eslint": "^10.3.0",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-prettier": "^5.5.5",
         "husky": "^9.1.7",
-        "lint-staged": "^16.4.0",
+        "lint-staged": "^17.0.4",
         "native-copyfiles": "^2.0.1",
         "prettier-plugin-organize-imports": "^4.3.0",
         "typescript": "5.9.3",
-        "typescript-eslint": "^8.58.2"
+        "typescript-eslint": "^8.59.3"
     },
     "engines": {
         "node": ">=24"
@@ -56,5 +54,5 @@
         ]
     },
     "sideEffects": false,
-    "packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
+    "packageManager": "pnpm@11.1.1+sha512.d1fdf5f73c617b64fa1a56a81c3c8dfe0e966e33a6010aa256b517ae77be21d93e05affc0de1a83b0e4f29d569f68b446ae8f068cd7247c0bb3df0fb4d7bdf9a"
 }
